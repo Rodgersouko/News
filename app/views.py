@@ -1,18 +1,38 @@
 from flask import render_template
 from app import app
+from newsapi import NewsApiClient
+
 
 
 
 # Views
+
 @app.route('/')
 def index():
+    newsapi= NewsApiClient('1123c65356c545bc97dfa6e49600d7fa')
+    topheadlines = newsapi.get_top_headlines(category='business',)
 
-    '''
-    View root page function that returns the index page and its data
-    '''
 
-    title = 'Home - Welcome to The best News Update Website Online'
-    return render_template('index.html', title = title)
+    articles = topheadlines['articles']
+
+    desc = []
+    news = []
+    img = []
+
+
+    for i in range(len(articles)):
+        myarticles = articles[i]
+        
+
+        news.append(myarticles['title'])
+        desc.append(myarticles['description'])
+        img.append(myarticles['urlToImage'])
+
+
+    mylist = zip(news, desc, img)
+
+
+    return render_template('index.html', title = mylist)
 
 
 @app.route('/news/<news_id>')
