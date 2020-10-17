@@ -10,7 +10,7 @@ from newsapi import NewsApiClient
 @app.route('/')
 def index():
     newsapi= NewsApiClient('1123c65356c545bc97dfa6e49600d7fa')
-    topheadlines = newsapi.get_top_headlines(category='business',)
+    topheadlines = newsapi.get_top_headlines(sources='bbc-news,the-verge',)
 
 
     articles = topheadlines['articles']
