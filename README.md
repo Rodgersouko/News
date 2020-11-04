@@ -10,11 +10,11 @@ pip install -r requirements.txt
 There are no bugs at the momment
 
 # Technologies Used
-HTML
-CSS
-Bootstrapt
-Python
-Angular
+HTML,
+CSS,
+Bootstrapt,
+Python,
+Angular,
 
 ## Setup
 Clone the repository
